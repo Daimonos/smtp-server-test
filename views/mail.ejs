@@ -12,6 +12,7 @@
 
     <main class="mdl-layout__content">
       <div class="content-grid mdl-grid">
+        <% if(mail) { %>
         <div class="mdl-cell mdl-cell--12-col">
           <h4>To:
             <%=mail.to.value[0].address %>
@@ -27,6 +28,7 @@
           </a>
         </div>
       </div>
+      <% } %>
     </main>
 </body>
 
