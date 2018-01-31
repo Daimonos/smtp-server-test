@@ -1,0 +1,33 @@
+<!-- views/pages/index.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <% include ./partials/head %>
+</head>
+
+<body class="container">
+
+  <% include ./partials/header %>
+
+    <main class="mdl-layout__content">
+      <div class="content-grid mdl-grid">
+        <div class="mdl-cell mdl-cell--12-col">
+          <h4>To:
+            <%=mail.to.value[0].address %>
+          </h4>
+          <p>Subject:
+            <%= mail.subject %>
+          </p>
+          <div>
+            <%- mail.textAsHtml %>
+          </div>
+          <a class="mdl-button mdl-js-button mdl-button--raised" href="/">
+            Go Back
+          </a>
+        </div>
+      </div>
+    </main>
+</body>
+
+</html>

@@ -1,0 +1,45 @@
+<!-- views/pages/index.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <% include ./partials/head %>
+</head>
+
+<body class="container">
+
+  <% include ./partials/header %>
+
+    <main class="mdl-layout__content">
+      <div class="content-grid mdl-grid">
+        <div class="mdl-cell mdl-cell--12-col">
+            <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp" style="width:100%">
+                <thead>
+                  <tr>
+                    <th class="mdl-data-table__cell--non-numeric">To</th>
+                    <th class="mdl-data-table__cell--non-numeric">Subject</th>
+                    <th class="mdl-data-table__cell--non-numeric">Date</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <% for(var i = 0; i < mail.length; i++) { %>
+                  <tr>
+                    <td class="mdl-data-table__cell--non-numeric">
+                      <a href = '/<%= mail[i]._id %>'>
+                        <%= mail[i].to.value[0].address %>
+                      </a>
+                    </td>
+                    <td class="mdl-data-table__cell--non-numeric"><%= mail[i].subject %></td>
+                    <td class="mdl-data-table__cell--non-numeric"><%= mail[i].date %></td>
+                  </tr>
+                <% } %>
+                </tbody>
+              </table>
+        </div>
+      </div>
+    </main>
+    </div>
+
+</body>
+
+</html>

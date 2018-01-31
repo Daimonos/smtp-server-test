@@ -23,5 +23,11 @@ module.exports = {
         console.log('Added Document: ', body);
       }
     });
+  },
+  getDocuments:function(done){
+    db.list({include_docs:true}, done);
+  },
+  getDocument:function(id, done){
+    db.get(id, done);
   }
 }

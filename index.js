@@ -4,4 +4,6 @@
  * 
  */
 const smtp = require('./server');
+const app = require('./app');
 smtp.listen(25);
+app.listen(8080);
