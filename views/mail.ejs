@@ -13,23 +13,39 @@
     <main class="mdl-layout__content">
       <div class="content-grid mdl-grid">
         <% if(mail) { %>
-        <div class="mdl-cell mdl-cell--12-col">
-          <h4>To:
-            <%=mail.to.value[0].address %>
-          </h4>
-          <p>Subject:
-            <%= mail.subject %>
-          </p>
-          <div>
-            <%- mail.textAsHtml %>
+          <div class="mdl-cell mdl-cell--12-col">
+            <h4>To:
+              <%if(mail.to !== undefined){%>
+                <%=mail.to.value[0].address%>
+                  <%}%>
+                    <%if(mail.to === undefined){%> No Address
+                      <%}%>
+            </h4>
+            <p>Subject:
+              <%= mail.subject %>
+            </p>
+            <p>Message Id: <%= mail._id %></p>
+            <div>
+              <%- mail.textAsHtml %>
+            </div>
+            <%if(mail.attachments && mail.attachments.length > 0) {%>
+              <div class = "attachments">
+                <h3>Attachments: </h3>
+                <% for(var i = 0; i < mail.attachments.length; i++) { %>
+                  <a target="_blank" href="http://localhost:8080/<%= mail._id %>/attachments/<%= i %>">
+                    <%= mail.attachments[i].filename %>
+                  </a>
+                <% } %>
+              </div>
+            <% } %>
+            <a class="mdl-button mdl-js-button mdl-button--raised" href="/">
+              Go Back
+            </a>
           </div>
-          <a class="mdl-button mdl-js-button mdl-button--raised" href="/">
-            Go Back
-          </a>
-        </div>
       </div>
       <% } %>
     </main>
 </body>
+
 
 </html>

@@ -25,7 +25,7 @@ module.exports = {
     });
   },
   getDocuments:function(done){
-    db.list({include_docs:true}, done);
+    db.list({include_docs:true, descending:true}, done);
   },
   getDocument:function(id, done){
     db.get(id, done);

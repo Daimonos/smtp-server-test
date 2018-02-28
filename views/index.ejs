@@ -27,7 +27,8 @@
                   <tr>
                     <td class="mdl-data-table__cell--non-numeric">
                       <a href = '/<%= mail[i]._id %>'>
-                        <%= mail[i].to.value[0].address %>
+                        <%if(mail[i].to !== undefined){%> <%=mail[i].to.value[0].address%> <%}%>
+                        <%if(mail[i].to === undefined){%> No Address<%}%> 
                       </a>
                     </td>
                     <td class="mdl-data-table__cell--non-numeric"><%= mail[i].subject %></td>
